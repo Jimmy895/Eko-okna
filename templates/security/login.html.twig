@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+<form method="post" class="login_form bg-light col-3 position-absolute top-50 start-50 translate-middle d-flex flex-column gap-3 p-5 shadow rounded-3">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -14,10 +14,10 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Panel logowania</h1>
     <label for="inputLogin">Login</label>
     <input type="text" value="{{ last_username }}" name="_login" id="inputLogin" class="form-control" autocomplete="username" required autofocus>
-    <label for="inputPassword">Password</label>
+    <label for="inputPassword">Hasło</label>
     <input type="password" name="_password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
