@@ -8,14 +8,35 @@ security:
         app_user_provider:
             entity:
                 class: App\Entity\User
-                property: id
+                property: login
+        # used to reload user from session & other features (e.g. switch_user)
     firewalls:
+        secured_area:
+            form_login:
+                # sprawdza gdzie jest mechanizm logowania
+                check_path: app_login
+                # wrzuca uzytkownika gdy nie jest zalogowany
+                login_path: app_login
+                # wlacza csrf
+                enable_csrf: true
+                # przenosi po zalogowaniu
+                default_target_path: app_admin
+                # sprawdza ktory parametr to username
+                username_parameter: _login
+
+            logout:
+                path: app_logout
+                target: app_login
+
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             lazy: true
             provider: app_user_provider
+            custom_authenticator: App\Security\LoginFormAuthenticator
+                # where to redirect after logout
+                # target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
