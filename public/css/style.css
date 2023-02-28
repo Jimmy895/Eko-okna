@@ -1,0 +1,25 @@
+
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0d6efd !important;
+}
+
+li {
+    transition: .3s;
+}
+
+li:hover {
+    background-color: rgba(225, 225, 225, 0.5);
+}
+
+.li-without-hover:hover {
+    background-color: transparent !important;
+}
+
+.logout:hover {
+    color: rgb(255,0,0) !important;
+}
