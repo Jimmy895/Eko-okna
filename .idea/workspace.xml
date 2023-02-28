@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5c1437-7973-4655-b69c-c2878fbd0fe8" name="Changes" comment="Config - automatyczne zmiany w plikach konfiguracyjnych">
-      <change afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/index2.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/nav/nav.html.twig" afterDir="false" />
+    <list default="true" id="6a5c1437-7973-4655-b69c-c2878fbd0fe8" name="Changes" comment="Style - efekty :hover dla nawigacji stworzonej przy pomocy Bootstrap">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +203,7 @@
       <workItem from="1677535467069" duration="766000" />
       <workItem from="1677612790701" duration="293000" />
       <workItem from="1677613135307" duration="19000" />
-      <workItem from="1677613431401" duration="9909000" />
+      <workItem from="1677613431401" duration="11442000" />
     </task>
     <task id="LOCAL-00001" summary="Config - inicjalizacja zmiennej odpowiadającej za połączenia z bazą danych">
       <created>1677508490239</created>
@@ -403,7 +394,70 @@
       <option name="project" value="LOCAL" />
       <updated>1677612834607</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Config - automatyczne zmiany w plikach konfiguracyjnych">
+      <created>1677623716905</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1677623716905</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Controller - dodanie zabezpieczenia związanego z przekierowaniem usera na route jeśli jest zalogowany">
+      <created>1677623793676</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1677623793676</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Controller - stworzenie testowej metody w celu przetestowania działania routów nawigacji">
+      <created>1677623864688</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1677623864688</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Twig - podpięcie ikon font-awesome">
+      <created>1677623897685</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1677623897685</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Twig - testowe podpięcie paska nawigacji">
+      <created>1677624190752</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1677624190752</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Twig - dodanie styli do formularza logowania">
+      <created>1677624219972</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1677624219972</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Twig - wstępne stworzenie paska nawigacji, baza pod rozbudowę o dodatkowe opcje">
+      <created>1677624258202</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1677624258202</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Security - zakomentowanie nieużywanego authenticatora, wstępne utworzenie ról dla kontroli dostępu">
+      <created>1677624326801</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1677624326801</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Style - efekty :hover dla nawigacji stworzonej przy pomocy Bootstrap">
+      <created>1677624394858</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1677624394858</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,13 +500,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Config - inicjalizacja zmiennej odpowiadającej za połączenia z bazą danych" />
-    <MESSAGE value="Security - automatyczne zmiany w plikach bezpieczeństwa" />
-    <MESSAGE value="Entity - stworzenie encji User odpowiadającej za przechowywanie danych odnośnie userów" />
-    <MESSAGE value="Repository - automatyczne stworzenie repo dla Userów" />
-    <MESSAGE value="Migrations - dodanie encji User do bazy danych" />
-    <MESSAGE value="Migrations - dodanie migracji tworzącej tabele magazynów" />
-    <MESSAGE value="Migrations - dodanie migracji tworzącej tabele jednostek miar" />
     <MESSAGE value="Migrations - dodanie migracji tworzącej tabele listy artykułów" />
     <MESSAGE value="Migrations - dodanie migracji tworzącej tabele z artykułami i ich parametrami" />
     <MESSAGE value="Twig - plik bazowy - podpięcie i przetestowanie akruszy styli Bootstrap" />
@@ -470,6 +517,14 @@
     <MESSAGE value="Congig - automatyczne zmiany w plikach konfiguracyjnych" />
     <MESSAGE value="Twig - dodanie styli oraz spolszczenie formularza logowania" />
     <MESSAGE value="Config - automatyczne zmiany w plikach konfiguracyjnych" />
-    <option name="LAST_COMMIT_MESSAGE" value="Config - automatyczne zmiany w plikach konfiguracyjnych" />
+    <MESSAGE value="Controller - dodanie zabezpieczenia związanego z przekierowaniem usera na route jeśli jest zalogowany" />
+    <MESSAGE value="Controller - stworzenie testowej metody w celu przetestowania działania routów nawigacji" />
+    <MESSAGE value="Twig - podpięcie ikon font-awesome" />
+    <MESSAGE value="Twig - testowe podpięcie paska nawigacji" />
+    <MESSAGE value="Twig - dodanie styli do formularza logowania" />
+    <MESSAGE value="Twig - wstępne stworzenie paska nawigacji, baza pod rozbudowę o dodatkowe opcje" />
+    <MESSAGE value="Security - zakomentowanie nieużywanego authenticatora, wstępne utworzenie ról dla kontroli dostępu" />
+    <MESSAGE value="Style - efekty :hover dla nawigacji stworzonej przy pomocy Bootstrap" />
+    <option name="LAST_COMMIT_MESSAGE" value="Style - efekty :hover dla nawigacji stworzonej przy pomocy Bootstrap" />
   </component>
 </project>
