@@ -34,7 +34,7 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            custom_authenticator: App\Security\LoginFormAuthenticator
+#            custom_authenticator: App\Security\LoginFormAuthenticator
                 # where to redirect after logout
                 # target: app_any_route
 
@@ -49,6 +49,8 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+#        - { path: ^/login, role: PUBLIC_ACCESS }
+#        - { path: ^/, role: ROLE_USER }
 
 when@test:
     security:
