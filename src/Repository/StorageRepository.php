@@ -42,5 +42,11 @@ class StorageRepository
         $this->connection->executeQuery($query, $paramsUsers, ['employee' => Connection::PARAM_INT_ARRAY]);
     }
 
+    public function selectAllStorages() {
+        $query = "SELECT * FROM storages";
+
+        return $this->connection->fetchAllAssociative($query);
+    }
+
 }
 
