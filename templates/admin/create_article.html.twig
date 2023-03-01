@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create new storage{% endblock %}
+
+{% block body %}
+
+    {% include asset('nav/nav.html.twig') %}
+
+    {{ form_start(addArticleForm, {attr: {'class': 'bg-light col-3 position-absolute top-50 start-50 translate-middle d-flex flex-column gap-3 p-5 shadow rounded-3'}}) }}
+    <h1 class="h2 mb-3 font-weight-normal">Stwórz artykuł</h1>
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(addArticleForm) }}
+    </div>
+
+    {{ form_row(addArticleForm.name) }}
+    {{ form_row(addArticleForm.unit) }}
+
+
+    <button type="submit" class="btn btn-lg btn-outline-primary">Stwórz artykuł</button>
+    {{ form_end(addArticleForm) }}
+
+
+{% endblock %}

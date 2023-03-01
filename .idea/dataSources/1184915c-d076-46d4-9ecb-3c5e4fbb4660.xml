@@ -1004,7 +1004,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="285" parent="241" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1033,7 +1033,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>id</UnderlyingIndexName>
     </key>
     <column id="291" parent="242" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>4</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1062,22 +1062,22 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>id</UnderlyingIndexName>
     </key>
     <column id="297" parent="243" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="298" parent="243" name="roles">
-      <DasType>json|0s</DasType>
+    <column id="298" parent="243" name="login">
+      <DasType>varchar(180)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="299" parent="243" name="password">
-      <DasType>varchar(255)|0s</DasType>
+    <column id="299" parent="243" name="roles">
+      <DasType>json|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="300" parent="243" name="login">
+    <column id="300" parent="243" name="password">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
@@ -1092,10 +1092,18 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="303" parent="243" name="PRIMARY">
+    <index id="303" parent="243" name="UNIQ_8D93D649AA08CB10">
+      <ColNames>login</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="304" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="305" parent="243" name="UNIQ_8D93D649AA08CB10">
+      <UnderlyingIndexName>UNIQ_8D93D649AA08CB10</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

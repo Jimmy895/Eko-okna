@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+
+    <div class="main-container w-100 min-vh-100 d-flex ">
+
+        {% include asset('nav/nav.html.twig') %}
+
+        <div class="page-content" style="width: 85%">
+            <div class="welcome-sign py-3">
+                <h1>Witaj, {{ app.user.userIdentifier }}!</h1>
+                <p>Co dzisiaj robimy?</p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+{% endblock %}
