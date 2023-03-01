@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\CreateArticleType;
 use App\Form\CreateNewStorageType;
 use App\Service\StorageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,6 +18,8 @@ class AdminController extends AbstractController
     {
         $this->storageService = $storageService;
     }
+
+
     #[Route('/create_new_storage', name: 'create_storage')]
     public function createStorage(Request $request): Response
     {
@@ -35,13 +38,29 @@ class AdminController extends AbstractController
 
 
 
-    #[Route('/admin', name: 'app_admin')]
+    #[Route('/storages', name: 'app_storages')]
     public function index(): Response
     {
 
 
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/storages_list.html.twig', [
             'controller_name' => 'AdminController',
+        ]);
+    }
+
+    #[Route('/create_new_article', name: 'create_article')]
+    public function createArticle(Request $request): Response
+    {
+        $form = $this->createForm(CreateArticleType::class, null, ['units' => $this->storageService->prepareUnitsArrayForSelect()]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $this->storageService->insertNewArticle($data);
+        }
+
+        return $this->render('admin/create_article.html.twig', [
+            'addArticleForm' => $form->createView(),
         ]);
     }
 }
