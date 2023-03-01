@@ -27,4 +27,15 @@ class StorageService
         $lastStorageId = $this->storageRepo->insertNewStorage($data['name']);
         $this->storageRepo->updateUserStorage($data['employee'], $lastStorageId);
     }
+
+    public function prepareStorageArrayForSelect() {
+        $storages = $this->storageRepo->selectAllStorages();
+        $storagesForSelect = [];
+
+        foreach ($storages as $storage) {
+            $storagesForSelect[$storage['name']] = $storage['id'];
+        }
+
+        return $storagesForSelect;
+    }
 }
