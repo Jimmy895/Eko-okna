@@ -48,5 +48,24 @@ class StorageRepository
         return $this->connection->fetchAllAssociative($query);
     }
 
+    public function selectAllUnits() {
+        $query = "SELECT * FROM units";
+
+        return $this->connection->fetchAllAssociative($query);
+    }
+
+    public function insertNewArticle(string $name, int $unit_id) {
+        $query = "INSERT INTO articles_list (name, unit_id) VALUES (:name, :unit_id)";
+
+        $params = [
+            'name' => $name,
+            'unit_id' => $unit_id,
+        ];
+
+        $this->connection->executeQuery($query, $params);
+    }
+
+
+
 }
 
