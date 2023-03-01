@@ -1,23 +1,28 @@
-<div class="container-fluid">
-    <div class="row">
+<div class="container m-0 p-0" style="width: 15%">
+    <div class="row w-100 m-0 p-0">
         <div class="col-sm-auto bg-light sticky-top p-0 min-vh-100 shadow d-flex flex-column bg-light align-items-center justify-content-between">
             <div class="d-flex flex-column bg-light align-items-center justify-content-center">
                 <ul class="nav nav-pills nav-flush flex-column mx-auto text-center align-items-center">
                     <li class="nav-item flex-column w-100">
-                        <a href="{{ path('app') }}" class="nav-link text-dark" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="create-storage">
+                        <a href="{{ path('create_storage') }}" class="nav-link text-dark" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="create-storage">
                             <i class="fa-solid fa-warehouse"></i><p>Stwórz magazyn</p>
                         </a>
                     </li>
                     <li class="nav-item flex-column w-100">
-                        <a href="{{ path('app_admin') }}" class="nav-link text-dark" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="create-storage">
-                            <i class="fa-solid fa-warehouse"></i><p>Testowa opcja</p>
+                        <a href="{{ path('app_storages') }}" class="nav-link text-dark" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="create-storage">
+                            <i class="fa-solid fa-list-ul"></i><p>Lista magazynów</p>
+                        </a>
+                    </li>
+                    <li class="nav-item flex-column w-100">
+                        <a href="{{ path('app_register') }}" class="nav-link text-dark" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="create-storage">
+                            <i class="fa-solid fa-user-plus"></i><p>Stwórz użytkownika</p>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="d-flex flex-column bg-light align-items-center justify-content-center w-100">
                 <ul class="nav nav-pills nav-flush flex-column mx-auto text-center align-items-center w-100">
-                    <li class="li-without-hover"><i class="fa-solid fa-user pb-3"></i> {{ app.user.userIdentifier }}</li>
+                    <li class="li-without-hover"><i class="fa-solid fa-user pb-3"></i>{% if app.user %} {{ app.user.userIdentifier }} {% endif %}</li>
                     <li class="nav-item flex-column w-100">
                         <a href="{{ path('app_logout') }}" class="logout w-100 nav-link text-dark" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="create-storage">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i><p>Wyloguj</p>
