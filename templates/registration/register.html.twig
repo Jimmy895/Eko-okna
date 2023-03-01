@@ -3,15 +3,18 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
+    {% include asset('nav/nav.html.twig') %}
+
+    {{ form_start(registrationForm, {attr: {'class': 'bg-light col-3 position-absolute top-50 start-50 translate-middle d-flex flex-column gap-3 p-5 shadow rounded-3'}}) }}
+        <h1 class="h2 mb-3 font-weight-normal">Stwórz użytkownika</h1>
         {{ form_row(registrationForm.login) }}
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label: 'Hasło'
         }) }}
-{#        {{ form_row(registrationForm.agreeTerms) }}#}
+        {{ form_row(registrationForm.storage_list_id) }}
 
-        <button type="submit" class="btn">Register</button>
+
+        <button type="submit" class="btn btn-lg btn-outline-primary">Stwórz użytkownika</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
