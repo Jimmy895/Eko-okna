@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5c1437-7973-4655-b69c-c2878fbd0fe8" name="Changes" comment="Repo - dodanie zapytań związanych z tworzeniem nowego artykułu:&#10;- wyciągnięcie z bazy danych jednostek miary na potrzeby sekcji select w formularzu,&#10;- insert nowego artykułu z przypisaniem jego jednostki miary">
+    <list default="true" id="6a5c1437-7973-4655-b69c-c2878fbd0fe8" name="Changes" comment="Config - automatyczne zmiany w plikach konfiguracyjnych projektu">
       <change afterPath="$PROJECT_DIR$/src/Service/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1184915c-d076-46d4-9ecb-3c5e4fbb4660.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1184915c-d076-46d4-9ecb-3c5e4fbb4660.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/StorageService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/StorageService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/storages_list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nav/nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav/nav.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,28 +208,7 @@
       <workItem from="1677612790701" duration="293000" />
       <workItem from="1677613135307" duration="19000" />
       <workItem from="1677613431401" duration="11917000" />
-      <workItem from="1677670133701" duration="18511000" />
-    </task>
-    <task id="LOCAL-00016" summary="Controller - stworzenie pierwszego kontrolera">
-      <created>1677529108033</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1677529108033</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Czyszczenie kodu - usunięcie zbędnych plików">
-      <created>1677534040270</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1677534040270</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Security - zmiany w plikach bezpieczeństwa - dotyczące logowania">
-      <created>1677534075476</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1677534075476</updated>
+      <workItem from="1677670133701" duration="25482000" />
     </task>
     <task id="LOCAL-00019" summary="Twig - stworzenie formularza logowania">
       <created>1677534111195</created>
@@ -553,7 +532,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677695059021</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Service - stworzenie funkcji związanych z insertem nowego artykułu: &#10;- obróbka jednostek miary celem prezentacji w formularzu (select)&#10;- przesłanie danych zwracanych z formularza do Repo">
+      <created>1677695154802</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1677695154802</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Type - stworzenie szkieletu formularza dodawania artykułu przy pomocy buildera">
+      <created>1677695192206</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1677695192206</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Config - automatyczne zmiany w plikach konfiguracyjnych projektu">
+      <created>1677695224624</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1677695224624</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,9 +596,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Controller - ustanowienie połączenia między plikami kontrolera i serwisu,&#10;- dodanie funkcji odpowiadającej za stworzenie i obsługę formularza tworzenia nowego magazynu" />
-    <MESSAGE value="Service - ustanowienie połączenia między plikami serwisu i repository&#10;- stworzenie funkcji odpowiedzialnych za obróbkę danych wyciągniętych z bazy na potrzeby odpowieniej prezentacji danych w formularzu tworzenia magazynu" />
-    <MESSAGE value="Service - stworzenie konstruktora odpowiedzialnego za połączenie&#10;- dodano pierwsze zapytania do bazy danych przeznaczone do formularza tworzenia nowego magazynu: lista użytkowników oraz insert nowego magazynu do bazy danych.&#10;Dodano również zapytanie Update odpowiedzialne za przydzielenie konkretnym userom nowo utworzonego magazynu" />
     <MESSAGE value="Controller - zmieniono ścieżki" />
     <MESSAGE value="Twig - stworzono wygląd formularza odpowidzialnego za dodawanie magazynów" />
     <MESSAGE value="Type - stworzono szkielet formularza odpowidzialnego za dodawanie magazynów" />
@@ -621,6 +618,9 @@
     <MESSAGE value="Twig - dodanie nowej opcji do menu nawigacji - tworzenie artykułu" />
     <MESSAGE value="Controller - stworzenie funkcji odpowiadającej za tworzenie nowego artykułu" />
     <MESSAGE value="Repo - dodanie zapytań związanych z tworzeniem nowego artykułu:&#10;- wyciągnięcie z bazy danych jednostek miary na potrzeby sekcji select w formularzu,&#10;- insert nowego artykułu z przypisaniem jego jednostki miary" />
-    <option name="LAST_COMMIT_MESSAGE" value="Repo - dodanie zapytań związanych z tworzeniem nowego artykułu:&#10;- wyciągnięcie z bazy danych jednostek miary na potrzeby sekcji select w formularzu,&#10;- insert nowego artykułu z przypisaniem jego jednostki miary" />
+    <MESSAGE value="Service - stworzenie funkcji związanych z insertem nowego artykułu: &#10;- obróbka jednostek miary celem prezentacji w formularzu (select)&#10;- przesłanie danych zwracanych z formularza do Repo" />
+    <MESSAGE value="Type - stworzenie szkieletu formularza dodawania artykułu przy pomocy buildera" />
+    <MESSAGE value="Config - automatyczne zmiany w plikach konfiguracyjnych projektu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Config - automatyczne zmiany w plikach konfiguracyjnych projektu" />
   </component>
 </project>
