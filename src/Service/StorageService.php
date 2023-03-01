@@ -38,4 +38,19 @@ class StorageService
 
         return $storagesForSelect;
     }
+
+    public function prepareUnitsArrayForSelect() {
+        $units = $this->storageRepo->selectAllUnits();
+        $unitsForSelect = [];
+
+        foreach ($units as $unit) {
+            $unitsForSelect[$unit['unit']] = $unit['id'];
+        }
+
+        return $unitsForSelect;
+    }
+
+    public function insertNewArticle(array $data) {
+        $this->storageRepo->insertNewArticle($data['name'], $data['unit']);
+    }
 }
