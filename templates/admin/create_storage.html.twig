@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create new storage{% endblock %}
+
+{% block body %}
+
+    {% include asset('nav/nav.html.twig') %}
+
+    {{ form_start(addStorageForm, {attr: {'class': 'bg-light col-3 position-absolute top-50 start-50 translate-middle d-flex flex-column gap-3 p-5 shadow rounded-3'}}) }}
+    <h1>Stwórz magazyn</h1>
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(addStorageForm) }}
+    </div>
+
+    {{ form_row(addStorageForm.name) }}
+    {{ form_row(addStorageForm.employee) }}
+
+
+    <button type="submit" class="btn btn-lg btn-outline-primary">Stwórz magazyn</button>
+    {{ form_end(addStorageForm) }}
+{% endblock %}
