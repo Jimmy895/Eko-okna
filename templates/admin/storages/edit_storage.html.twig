@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit {{ storage.name }}{% endblock %}
+
+{% block body %}
+
+    {% include 'nav/nav.html.twig' %}
+
+    {{ storage.name }}
+    {{ dump(storage) }}
+
+{% endblock %}
