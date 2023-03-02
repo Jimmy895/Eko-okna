@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5c1437-7973-4655-b69c-c2878fbd0fe8" name="Changes" comment="Config - automatyczne zmiany w plikach konfiguracyjnych projektu">
+    <list default="true" id="6a5c1437-7973-4655-b69c-c2878fbd0fe8" name="Changes" comment="Twig - poprawa buga - odsunięcie napisu">
       <change afterPath="$PROJECT_DIR$/src/Service/UserService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/storages/edit_storage.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/storages/storages_list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1184915c-d076-46d4-9ecb-3c5e4fbb4660.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1184915c-d076-46d4-9ecb-3c5e4fbb4660.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/storages_list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CreateNewStorageType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CreateNewStorageType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/StorageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StorageRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/StorageService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/StorageService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/create_article.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/articles/create_article.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/create_storage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/storages/create_storage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/storages_list.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/nav/nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav/nav.html.twig" afterDir="false" />
     </list>
@@ -162,31 +171,36 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Zadanie_rektutacyjne/templates/admin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Zadanie_rektutacyjne/templates/admin/storages",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Zadanie_rektutacyjne\templates\admin\storages" />
       <recent name="D:\Zadanie_rektutacyjne\templates\admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Zadanie_rektutacyjne\templates\admin\articles" />
+      <recent name="D:\Zadanie_rektutacyjne\templates\admin\storages" />
     </key>
   </component>
   <component name="RunManager">
@@ -208,28 +222,8 @@
       <workItem from="1677612790701" duration="293000" />
       <workItem from="1677613135307" duration="19000" />
       <workItem from="1677613431401" duration="11917000" />
-      <workItem from="1677670133701" duration="25482000" />
-    </task>
-    <task id="LOCAL-00019" summary="Twig - stworzenie formularza logowania">
-      <created>1677534111195</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1677534111195</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Auth - stworzenie autentykacji formularza logowania">
-      <created>1677534137100</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1677534137100</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Controller - automatyczne stworzenie kontrolera odpowiedzialnego za logowanie">
-      <created>1677534168776</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1677534168776</updated>
+      <workItem from="1677670133701" duration="26609000" />
+      <workItem from="1677781740312" duration="9197000" />
     </task>
     <task id="LOCAL-00022" summary="Entity - stworzenie poprawionej encji usera">
       <created>1677534194897</created>
@@ -553,7 +547,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677695224624</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Config - automatyczne zmiany w plikach konfiguracyjnych projektu">
+      <created>1677707753877</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1677707753877</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Twig - stworzenie wstępnego widoku listy magazynów">
+      <created>1677707796846</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1677707796846</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Twig - poprawa buga - odsunięcie napisu">
+      <created>1677707854994</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1677707854994</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,8 +611,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Controller - zmieniono ścieżki" />
-    <MESSAGE value="Twig - stworzono wygląd formularza odpowidzialnego za dodawanie magazynów" />
     <MESSAGE value="Type - stworzono szkielet formularza odpowidzialnego za dodawanie magazynów" />
     <MESSAGE value="Controller - stworzono kontroler powitalny" />
     <MESSAGE value="Twig - stworzono wygląd Dashboard - kontroler powitalny" />
@@ -621,6 +634,8 @@
     <MESSAGE value="Service - stworzenie funkcji związanych z insertem nowego artykułu: &#10;- obróbka jednostek miary celem prezentacji w formularzu (select)&#10;- przesłanie danych zwracanych z formularza do Repo" />
     <MESSAGE value="Type - stworzenie szkieletu formularza dodawania artykułu przy pomocy buildera" />
     <MESSAGE value="Config - automatyczne zmiany w plikach konfiguracyjnych projektu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Config - automatyczne zmiany w plikach konfiguracyjnych projektu" />
+    <MESSAGE value="Twig - stworzenie wstępnego widoku listy magazynów" />
+    <MESSAGE value="Twig - poprawa buga - odsunięcie napisu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Twig - poprawa buga - odsunięcie napisu" />
   </component>
 </project>
