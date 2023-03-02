@@ -14,57 +14,82 @@ class StorageRepository
 
 
     public function selectAllUsers() {
-        $query = "SELECT * FROM user";
+        $sql = "SELECT * FROM user";
 
-        return $this->connection->fetchAllAssociative($query);
+        return $this->connection->fetchAllAssociative($sql);
     }
 
     public function insertNewStorage(string $name) {
-        $queryStorage = "INSERT INTO storages (name) VALUES (:name)";
+        $sqlStorage = "INSERT INTO storages (name) VALUES (:name)";
 
-        $paramsStorage = [
+        $param = [
             'name' => $name,
         ];
 
-        $this->connection->executeQuery($queryStorage, $paramsStorage);
+        $this->connection->executeQuery($sqlStorage, $param);
         return $this->connection->lastInsertId();
     }
 
     public function updateUserStorage(array $userIds, int $lastStorageId) {
-        $query = "UPDATE user SET storage_list_id = :lastStorageId 
+        $sql = "UPDATE user SET storage_list_id = :lastStorageId 
              WHERE id IN (:employee)";
 
-        $paramsUsers = [
+        $param = [
             'employee' => $userIds,
             'lastStorageId' => $lastStorageId
         ];
 
-        $this->connection->executeQuery($query, $paramsUsers, ['employee' => Connection::PARAM_INT_ARRAY]);
+        $this->connection->executeQuery($sql, $param, ['employee' => Connection::PARAM_INT_ARRAY]);
     }
 
     public function selectAllStorages() {
-        $query = "SELECT * FROM storages";
+        $sql = "SELECT * FROM storages";
 
-        return $this->connection->fetchAllAssociative($query);
+        return $this->connection->fetchAllAssociative($sql);
     }
 
     public function selectAllUnits() {
-        $query = "SELECT * FROM units";
+        $sql = "SELECT * FROM units";
 
-        return $this->connection->fetchAllAssociative($query);
+        return $this->connection->fetchAllAssociative($sql);
     }
 
     public function insertNewArticle(string $name, int $unit_id) {
-        $query = "INSERT INTO articles_list (name, unit_id) VALUES (:name, :unit_id)";
+        $sql = "INSERT INTO articles_list (name, unit_id) VALUES (:name, :unit_id)";
 
-        $params = [
+        $param = [
             'name' => $name,
             'unit_id' => $unit_id,
         ];
 
-        $this->connection->executeQuery($query, $params);
+        $this->connection->executeQuery($sql, $param);
     }
 
+    public function selectStorages() {
+        $sql = "SELECT * FROM storages";
+
+        return $this->connection->fetchAllAssociative($sql);
+    }
+
+//    public function selectStorages(?int $id = null) {
+//        $sql = "SELECT * FROM storages";
+//        $param = [];
+//
+//        if ($id) {
+//            $sql .= " WHERE id = :id";
+//            $param['id'] = $id;
+//        }
+//
+//        return $this->connection->fetchAllAssociative($sql, $param);
+//    }
+
+    public function selectStorage(int $id)
+    {
+        $sql = "SELECT * FROM storages WHERE id = :id";
+        $param['id'] = $id;
+
+        return $this->connection->fetchAssociative($sql, $param);
+    }
 
 
 }

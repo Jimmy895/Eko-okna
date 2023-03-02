@@ -19,11 +19,10 @@ class AdminController extends AbstractController
         $this->storageService = $storageService;
     }
 
-
-    #[Route('/create_new_storage', name: 'create_storage')]
+    #[Route('/storage/create', name: 'create_storage')]
     public function createStorage(Request $request): Response
     {
-        $form = $this->createForm(CreateNewStorageType::class, null, ['employee' => $this->storageService->prepareUsersArrayForSelect()]);
+        $form = $this->createForm(CreateNewStorageType::class, null, ['employee' => $this->storageService->prepareUsersArrayForSelect(), 'create' => true]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -31,24 +30,45 @@ class AdminController extends AbstractController
             $this->storageService->insertNewStorage($data);
         }
 
-        return $this->render('admin/create_storage.html.twig', [
-            'addStorageForm' => $form->createView(),
+        return $this->render('admin/storages/create_storage.html.twig', [
+            'form' => $form->createView(),
+            'title' => 'Stwórz magazyn'
         ]);
     }
 
-
-
-    #[Route('/storages', name: 'app_storages')]
-    public function index(): Response
+    #[Route('/storages', name: 'storage_list')]
+    public function storages(): Response
     {
-
-
-        return $this->render('admin/storages_list.html.twig', [
+        return $this->render('admin/storages/storages_list.html.twig', [
             'controller_name' => 'AdminController',
+            'storages' => $this->storageService->selectStorages(),
         ]);
     }
 
-    #[Route('/create_new_article', name: 'create_article')]
+    #[Route('/storage/edit/{id}', name: 'edit_storage')]
+    public function editStorage(int $id, Request $request): Response
+    {
+        $storage = $this->storageService->selectStorage($id);
+        $form = $this->createForm(CreateNewStorageType::class, ['name' => $storage['name']]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            // wykonac modyfikacje
+            $this->storageService->updateStorageName($id, $data['name']);
+
+            return $this->redirectToRoute('storage_list');
+        }
+
+        return $this->render('admin/storages/create_storage.html.twig', [
+            'controller_name' => 'AdminController',
+            'storage' => $storage,
+            'title' => 'Edytuj magazyn',
+            'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/article/create', name: 'create_article')]
     public function createArticle(Request $request): Response
     {
         $form = $this->createForm(CreateArticleType::class, null, ['units' => $this->storageService->prepareUnitsArrayForSelect()]);
@@ -59,7 +79,7 @@ class AdminController extends AbstractController
             $this->storageService->insertNewArticle($data);
         }
 
-        return $this->render('admin/create_article.html.twig', [
+        return $this->render('admin/articles/create_article.html.twig', [
             'addArticleForm' => $form->createView(),
         ]);
     }
