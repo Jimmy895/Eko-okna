@@ -53,4 +53,17 @@ class StorageService
     public function insertNewArticle(array $data) {
         $this->storageRepo->insertNewArticle($data['name'], $data['unit']);
     }
+
+    public function selectStorages() {
+        return $this->storageRepo->selectStorages();
+    }
+
+    public function selectStorage(int $id)
+    {
+        return $this->storageRepo->selectStorage($id);
+    }
+
+    public function updateStorageName(int $id, string $name)
+    {
+    }
 }
