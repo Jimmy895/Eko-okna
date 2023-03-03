@@ -21,7 +21,6 @@ class CreateNewStorageType extends AbstractType
                 'label' => 'Nazwa magazynu:',
                 'attr' => [
                     'class' => 'form-control border border-1',
-                    'placeholder' => 'Nazwa magazynu..'
                 ],
                 'label_attr' => [
                     'class' => 'h5',
