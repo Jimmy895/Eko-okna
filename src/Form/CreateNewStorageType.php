@@ -52,7 +52,7 @@ class CreateNewStorageType extends AbstractType
         $builder
             ->add('submit', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-lg btn-outline-primary',
+                    'class' => 'btn btn-lg btn-outline-primary w-100',
                 ],
                 'label' => is_null($options['create']) ? 'Edytuj magazyn' : 'Stwórz magazyn'
             ]);
