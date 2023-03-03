@@ -54,7 +54,6 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            // wykonac modyfikacje
             $this->storageService->updateStorageName($id, $data['name']);
 
             return $this->redirectToRoute('storage_list');
@@ -67,6 +66,38 @@ class AdminController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/users', name: 'users_list')]
+    public function users(): Response
+    {
+        return $this->render('admin/users/users_list.html.twig', [
+            'controller_name' => 'AdminController',
+            'users' => $this->storageService->selectAllUsers()
+        ]);
+    }
+
+    #[Route('/user/edit/{id}', name: 'edit_user')]
+    public function editUser(int $id, Request $request): Response
+    {
+        $user = $this->storageService->selectStorage($id);
+        $form = $this->createForm(CreateNewStorageType::class, ['name' => $storage['name']]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $this->storageService->updateStorageName($id, $data['name']);
+
+            return $this->redirectToRoute('storage_list');
+        }
+
+        return $this->render('admin/storages/create_storage.html.twig', [
+            'controller_name' => 'AdminController',
+            'storage' => $storage,
+            'title' => 'Edytuj magazyn',
+            'form' => $form->createView(),
+        ]);
+    }
+
 
     #[Route('/article/create', name: 'create_article')]
     public function createArticle(Request $request): Response
