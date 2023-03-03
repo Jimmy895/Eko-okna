@@ -107,6 +107,14 @@ class StorageRepository
         $this->connection->executeQuery($sql, $param);
     }
 
+    public function selectUsersDataForList() {
+        $sql = "SELECT u.login, u.roles, s.name
+        FROM user u
+        INNER JOIN storages s ON u.storage_list_id = s.id";
+
+        return $this->connection->fetchAllAssociative($sql);
+    }
+
 
 }
 
