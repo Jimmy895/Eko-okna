@@ -20,15 +20,21 @@
                         </a>
                     </li>
                     <li class="nav-item flex-column w-100 py-2">
+                        <a href="{{ path('users_list') }}" class="nav-link text-dark" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="create-storage">
+                            <i class="fa-regular fa-rectangle-list h4 m-0"></i><p class="m-0">Lista użytkowników</p>
+                        </a>
+                    </li>
+                    <li class="nav-item flex-column w-100 py-2">
                         <a href="{{ path('create_article') }}" class="nav-link text-dark" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="create-storage">
                             <i class="fa-solid fa-cart-plus h4 m-0"></i><p class="m-0">Stwórz artykuł</p>
                         </a>
                     </li>
                     <li class="nav-item flex-column w-100 py-2">
-                        <a href="{{ path('create_article') }}" class="nav-link text-dark" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="create-storage">
+                        <a href="{{ path('users_list') }}" class="nav-link text-dark" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="create-storage">
                             <i class="fa-solid fa-list-check h4 m-0"></i><p class="m-0">Lista artykułów</p>
                         </a>
                     </li>
+
                 </ul>
             </div>
             <div class="d-flex flex-column bg-light align-items-center justify-content-center w-100">
