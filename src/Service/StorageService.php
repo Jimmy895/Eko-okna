@@ -84,4 +84,9 @@ class StorageService
     {
         $this->storageRepo->updateStorageName($id, $name);
     }
+
+    public function selectAllUsers()
+    {
+        return $this->storageRepo->selectUsersDataForList();
+    }
 }
