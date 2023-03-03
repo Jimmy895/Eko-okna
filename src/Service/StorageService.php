@@ -65,6 +65,13 @@ class StorageService
             $storages[$storageKey]['employees'] = $this->storageRepo->selectEmplyeesFromStorage($storage['id']) ?? null;
         }
 
+        $articles = $this->storageRepo->selectStorages();
+
+        foreach ($articles as $articleKey => &$article)  {
+            $storages[$articleKey]['articles'] = $this->storageRepo->selectArticlesInStorages($article['id']) ?? null;
+        }
+
+
         return $storages;
     }
 
