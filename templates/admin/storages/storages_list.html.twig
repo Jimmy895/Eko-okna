@@ -23,7 +23,12 @@
                     {% endif %}
                 {% endfor %}
                 </p>
-                <p>Artykuły: 10000</p>
+
+                <p class="m-0 p-0">Artykuły w magazynie:
+                    {% if storage.articles is not null %}
+                        {{ storage.articles|length }}
+                    {% endif %}
+                </p>
             </div>
             {% endfor %}
         </div>
