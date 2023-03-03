@@ -71,17 +71,13 @@ class StorageRepository
         return $this->connection->fetchAllAssociative($sql);
     }
 
-//    public function selectStorages(?int $id = null) {
-//        $sql = "SELECT * FROM storages";
-//        $param = [];
-//
-//        if ($id) {
-//            $sql .= " WHERE id = :id";
-//            $param['id'] = $id;
-//        }
-//
-//        return $this->connection->fetchAllAssociative($sql, $param);
-//    }
+    public function selectEmplyeesFromStorage(int $id) {
+        $sql = "SELECT login FROM user WHERE storage_list_id = :id";
+
+        $param['id'] = $id;
+
+        return $this->connection->fetchAllAssociative($sql, $param);
+    }
 
     public function selectStorage(int $id)
     {
@@ -89,6 +85,18 @@ class StorageRepository
         $param['id'] = $id;
 
         return $this->connection->fetchAssociative($sql, $param);
+    }
+
+    public function updateStorageName(int $id, string $name) {
+        $sql = "UPDATE storages
+        SET name = :name
+        WHERE id = :id";
+        $param = [
+            'name' => $name,
+            'id' => $id
+        ];
+
+        $this->connection->executeQuery($sql, $param);
     }
 
 
