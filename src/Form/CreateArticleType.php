@@ -15,7 +15,7 @@ class CreateArticleType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'required' => true,
-                'label' => 'Nazwa artykułu',
+                'label' => 'Nazwa artykułu:',
                 'attr' => [
                     'class' => 'form-control border border-1',
                 ],
@@ -25,7 +25,7 @@ class CreateArticleType extends AbstractType
             ])
             ->add('unit', ChoiceType::class, [
                 'choices'  => $options['units'],
-                'label' => 'Jednostka miary',
+                'label' => 'Jednostka miary:',
                 'row_attr' => [
                     'class' => 'd-flex justify-content-between align-items-center',
                 ],

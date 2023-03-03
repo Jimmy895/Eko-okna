@@ -27,3 +27,7 @@ li:hover {
 .logout:hover {
     color: rgb(255,0,0) !important;
 }
+
+.btn-edit:hover {
+    color: white;
+}

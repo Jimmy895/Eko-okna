@@ -14,10 +14,21 @@
             <div class="w-75 py-5 shadow rounded-3 bg-light d-flex flex-column px-5">
                 <div class="d-flex w-100 justify-content-between">
                     <h3>{{ storage.name }}</h3>
-                    <a href="{{ path('edit_storage', { id: storage.id }) }}" class="btn btn-primary px-2">Edytuj</a>
+                    <a href="{{ path('edit_storage', { id: storage.id }) }}"><button class="btn-edit btn btn-lg btn-outline-primary">Edytuj</button></a>
                 </div>
-                <p>Pracownicy: TEST TEST TEST</p>
-                <p>Artykuły: 10000</p>
+                <p>Pracownicy:
+                {% for employee in storage.employees %}
+                    {% if employee is not null %}
+                        {{ employee.login }},
+                    {% endif %}
+                {% endfor %}
+                </p>
+
+                <p class="m-0 p-0">Artykuły w magazynie:
+                    {% if storage.articles is not null %}
+                        {{ storage.articles|length }}
+                    {% endif %}
+                </p>
             </div>
             {% endfor %}
         </div>

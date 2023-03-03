@@ -4,20 +4,13 @@
 
 {% block body %}
 
-    <div class="main-container w-100 min-vh-100 d-flex">
+    {% include 'nav/nav.html.twig' %}
 
-        {% include asset('nav/nav.html.twig') %}
-
-        <div class="page-content" style="width: 85%">
-            <div class="welcome-sign px-5 py-3">
-                <h1>Witaj, {{ app.user.userIdentifier }}!</h1>
-                <p>Co dzisiaj robimy?</p>
-            </div>
-
+    <div style="width: 85%; padding-left: 10%;">
+        <div class="welcome-sign px-5 py-3">
+            <h1>Witaj, {{ app.user.userIdentifier }}!</h1>
+            <p>Co dzisiaj robimy?</p>
         </div>
-
-
     </div>
-
 
 {% endblock %}

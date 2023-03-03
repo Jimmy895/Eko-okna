@@ -25,9 +25,6 @@ class RegistrationFormType extends AbstractType
                 'attr' => [
                     'class' => 'form-control border border-1',
                 ],
-                'row_attr' => [
-                    'class' => 'testowy parent',
-                ],
                 'label_attr' => [
                     'class' => 'h5',
                 ],
@@ -47,11 +44,11 @@ class RegistrationFormType extends AbstractType
 
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Proszę wprowadzić hasło.',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Twoje hasło powinno zawierać co najmniej {{ limit }} znaków',
+                        'minMessage' => 'Twoje hasło powinno zawierać co najmniej {{ limit }} znaków.',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
