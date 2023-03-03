@@ -58,6 +58,16 @@ class StorageService
         return $this->storageRepo->selectStorages();
     }
 
+    public function selectEmplyeesFromStorages() {
+        $storages = $this->storageRepo->selectStorages();
+
+        foreach ($storages as $storageKey => &$storage)  {
+            $storages[$storageKey]['employees'] = $this->storageRepo->selectEmplyeesFromStorage($storage['id']) ?? null;
+        }
+
+        return $storages;
+    }
+
     public function selectStorage(int $id)
     {
         return $this->storageRepo->selectStorage($id);
@@ -65,5 +75,6 @@ class StorageService
 
     public function updateStorageName(int $id, string $name)
     {
+        $this->storageRepo->updateStorageName($id, $name);
     }
 }
