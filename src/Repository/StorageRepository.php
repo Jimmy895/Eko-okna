@@ -79,6 +79,14 @@ class StorageRepository
         return $this->connection->fetchAllAssociative($sql, $param);
     }
 
+    public function selectArticlesInStorages(int $id) {
+        $sql = "SELECT id FROM articles WHERE storages_list_id = :id";
+
+        $param['id'] = $id;
+
+        return $this->connection->fetchAllAssociative($sql, $param);
+    }
+
     public function selectStorage(int $id)
     {
         $sql = "SELECT * FROM storages WHERE id = :id";
