@@ -41,7 +41,7 @@ class AdminController extends AbstractController
     {
         return $this->render('admin/storages/storages_list.html.twig', [
             'controller_name' => 'AdminController',
-            'storages' => $this->storageService->selectStorages(),
+            'storages' => $this->storageService->selectEmplyeesFromStorages()
         ]);
     }
 
