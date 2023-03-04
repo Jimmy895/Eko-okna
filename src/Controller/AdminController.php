@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\CreateArticleType;
 use App\Form\CreateNewStorageType;
+use App\Form\EditUserType;
 use App\Service\StorageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -79,22 +80,22 @@ class AdminController extends AbstractController
     #[Route('/user/edit/{id}', name: 'edit_user')]
     public function editUser(int $id, Request $request): Response
     {
-        $user = $this->storageService->selectStorage($id);
-        $form = $this->createForm(CreateNewStorageType::class, ['name' => $storage['name']]);
+        $user = $this->storageService->selectUser($id);
+        $form = $this->createForm(EditUserType::class, ['login' => $user['login'], 'storages' => $this->storageService->prepareStorageArrayForSelect()]);
         $form->handleRequest($request);
+        dd($user, $this->storageService->prepareStorageArrayForSelect());
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $this->storageService->updateStorageName($id, $data['name']);
+//            $this->storageService->updateStorageName($id, $data['name']);
 
-            return $this->redirectToRoute('storage_list');
+            return $this->redirectToRoute('users_list');
         }
 
-        return $this->render('admin/storages/create_storage.html.twig', [
+        return $this->render('admin/users/edit_user.html.twig', [
             'controller_name' => 'AdminController',
-            'storage' => $storage,
-            'title' => 'Edytuj magazyn',
             'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 

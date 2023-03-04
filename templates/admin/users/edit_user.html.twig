@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit {{ user.login }}{% endblock %}
+
+{% block body %}
+
+    {% include 'nav/nav.html.twig' %}
+
+
+    {{ form_start(form, {attr: {'class': 'bg-light col-3 position-absolute top-50 start-50 translate-middle d-flex flex-column gap-3 p-5 shadow rounded-3'}}) }}
+    <h1 class="h2 mb-3 font-weight-normal">Edycja użytkownika</h1>
+    {{ form_row(form.login) }}
+    {{ form_row(form.storage_list_id) }}
+
+
+    <button type="submit" class="btn btn-lg btn-outline-primary">Zapisz</button>
+    {{ form_end(form) }}
+
+{% endblock %}

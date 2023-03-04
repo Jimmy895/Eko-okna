@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5c1437-7973-4655-b69c-c2878fbd0fe8" name="Changes" comment="Twig - zmiana sposobu podpięcia nawigacji,">
-      <change afterPath="$PROJECT_DIR$/templates/admin/users/edit_users.html.twig" afterDir="false" />
+    <list default="true" id="6a5c1437-7973-4655-b69c-c2878fbd0fe8" name="Changes" comment="Config - automatyczne zmiany w plikach konfiguracyjnych">
+      <change afterPath="$PROJECT_DIR$/templates/admin/users/edit_user.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1184915c-d076-46d4-9ecb-3c5e4fbb4660.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1184915c-d076-46d4-9ecb-3c5e4fbb4660.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CreateArticleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CreateArticleType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CreateNewStorageType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CreateNewStorageType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/StorageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StorageRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/StorageService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/StorageService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/users/users_list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users/users_list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,28 +164,28 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Zadanie_rektutacyjne/templates/admin/storages",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Zadanie_rektutacyjne/templates/admin/storages&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Zadanie_rektutacyjne\templates\admin\storages" />
@@ -215,28 +217,9 @@
       <workItem from="1677613431401" duration="11917000" />
       <workItem from="1677670133701" duration="26609000" />
       <workItem from="1677781740312" duration="9767000" />
-      <workItem from="1677854569948" duration="17410000" />
-    </task>
-    <task id="LOCAL-00052" summary="Entity - automatyczne dodanie zabezpieczenia związanego z prewencją duplikacji loginów użytkowników">
-      <created>1677684287969</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1677684287969</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Type - automatyczne wygenerowanie formularza rejestracji i dopasowanie go do potrzeb aplikacji">
-      <created>1677684334630</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1677684334630</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Controller - automatyczne wygenerowanie kontrolera rejestracji">
-      <created>1677684356114</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1677684356114</updated>
+      <workItem from="1677854569948" duration="17554000" />
+      <workItem from="1677875178574" duration="10000" />
+      <workItem from="1677935051669" duration="4529000" />
     </task>
     <task id="LOCAL-00055" summary="Service - przygotowano funkcję obrabiającą dane magazynów potrzebne do wyświelenia i przypisania w formularzu rejestracji użytkownika">
       <created>1677686081519</created>
@@ -560,7 +543,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677874934396</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Controller - stworzenie generatora sekcji: lista użytkowników,&#10;- wstępne przygotowanie funkcjonalności związanej z edycją użytkownika">
+      <created>1677875071067</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1677875071067</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Type - normalizacja nazewnictw w formularzach">
+      <created>1677875114300</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1677875114300</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Config - automatyczne zmiany w plikach konfiguracyjnych">
+      <created>1677875142107</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1677875142107</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,9 +607,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Twig - zmieniono strukturę drzewa plików tak aby były czytelniejsze - usunięto zbędny widok" />
-    <MESSAGE value="Twig - stworzono wygląd podstrony prezentującej listę magazynów, lista magazynów jest teraz generowana" />
-    <MESSAGE value="Type - zmodyfikowano formularz tworzenia magazynów tak aby obsługiwał również ich edycję - dodano instrukcje warunkowe, które sprawdzają i renderują odpowiedni content zależnie od sytuacji" />
     <MESSAGE value="Twig - przeniesienie pliku w drzewie projektu tak aby struktura plików była bardziej czytelna" />
     <MESSAGE value="Twig - Nav - stworzono wstępny odnośnik do kolejnej podstrony - lista artykułów" />
     <MESSAGE value="Config - automatyczne zmiany w plikach konfiguracyjnych projektu" />
@@ -628,6 +629,9 @@
     <MESSAGE value="Rozbudowa panelu nawigacji o nowe opcje - &#10;przejście do sekcji listy użytkowników" />
     <MESSAGE value="Twig - zmiana sposobu podpięcia nawigacji,&#10;- drobne zmiany styli, &#10;- czyszczenie kodu" />
     <MESSAGE value="Twig - zmiana sposobu podpięcia nawigacji," />
-    <option name="LAST_COMMIT_MESSAGE" value="Twig - zmiana sposobu podpięcia nawigacji," />
+    <MESSAGE value="Controller - stworzenie generatora sekcji: lista użytkowników,&#10;- wstępne przygotowanie funkcjonalności związanej z edycją użytkownika" />
+    <MESSAGE value="Type - normalizacja nazewnictw w formularzach" />
+    <MESSAGE value="Config - automatyczne zmiany w plikach konfiguracyjnych" />
+    <option name="LAST_COMMIT_MESSAGE" value="Config - automatyczne zmiany w plikach konfiguracyjnych" />
   </component>
 </project>
