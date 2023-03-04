@@ -815,7 +815,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <column id="244" parent="237" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1062,7 +1062,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>id</UnderlyingIndexName>
     </key>
     <column id="297" parent="243" name="id">
-      <AutoIncrement>4</AutoIncrement>
+      <AutoIncrement>5</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1097,12 +1097,16 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="304" parent="243" name="PRIMARY">
+    <index id="304" parent="243" name="storage_list_id">
+      <ColNames>storage_list_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="305" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="305" parent="243" name="UNIQ_8D93D649AA08CB10">
+    <key id="306" parent="243" name="UNIQ_8D93D649AA08CB10">
       <UnderlyingIndexName>UNIQ_8D93D649AA08CB10</UnderlyingIndexName>
     </key>
   </database-model>
