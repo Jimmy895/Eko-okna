@@ -108,11 +108,19 @@ class StorageRepository
     }
 
     public function selectUsersDataForList() {
-        $sql = "SELECT u.login, u.roles, s.name
+        $sql = "SELECT u.id, u.login, u.roles, s.name
         FROM user u
         INNER JOIN storages s ON u.storage_list_id = s.id";
 
         return $this->connection->fetchAllAssociative($sql);
+    }
+
+    public function selectUser(int $id)
+    {
+        $sql = "SELECT * FROM user WHERE id = :id";
+        $param['id'] = $id;
+
+        return $this->connection->fetchAssociative($sql, $param);
     }
 
 
