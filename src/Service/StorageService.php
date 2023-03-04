@@ -89,4 +89,9 @@ class StorageService
     {
         return $this->storageRepo->selectUsersDataForList();
     }
+
+    public function selectUser(int $id)
+    {
+        return $this->storageRepo->selectUser($id);
+    }
 }
