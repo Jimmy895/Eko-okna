@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Release article{% endblock %}
+
+{% block body %}
+
+    {% include('nav/nav.html.twig') %}
+    {{ form_start(releaseArticleForm, {attr: {'class': 'bg-light col-3 position-absolute top-50 start-50 translate-middle d-flex flex-column gap-3 p-4 shadow rounded-3'}}) }}
+    <h1>Wydaj artykuł</h1>
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(releaseArticleForm) }}
+    </div>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('warning') %}
+        <div class="alert alert-danger text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ form_row(releaseArticleForm.article) }}
+    {{ form_row(releaseArticleForm.code) }}
+    {{ form_row(releaseArticleForm.amount) }}
+
+    <button type="submit" class="btn btn-lg btn-outline-primary">Wydaj</button>
+    {{ form_end(releaseArticleForm) }}
+{% endblock %}

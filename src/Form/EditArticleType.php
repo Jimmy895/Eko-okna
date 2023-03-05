@@ -8,14 +8,14 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EditUserType extends AbstractType
+class EditArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('login', TextType::class, [
+            ->add('name', TextType::class, [
                 'required' => true,
-                'label' => 'Login:',
+                'label' => 'Nazwa artykułu:',
                 'attr' => [
                     'class' => 'form-control border border-1',
                 ],
@@ -23,26 +23,13 @@ class EditUserType extends AbstractType
                     'class' => 'h5',
                 ],
             ])
-            ->add('storage_list_id', ChoiceType::class, [
-                'choices'  => $options['storages'],
-                'label' => 'Przypisz magazyn:',
-                'row_attr' => [
-                    'class' => 'd-flex justify-content-between align-items-center',
-                ],
-                'attr' => [
-                    'class' => 'btn h5 px-3 py-2 bg-white rounded-2 border border-primary',
-                ],
-                'label_attr' => [
-                    'class' => 'h5',
-                ]
-            ])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'storages' => null,
+
         ]);
     }
 }

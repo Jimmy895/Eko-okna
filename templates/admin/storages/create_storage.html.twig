@@ -11,6 +11,11 @@
     <div class="my-custom-class-for-errors">
         {{ form_errors(form) }}
     </div>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
 
     {{ form_end(form) }}
 {% endblock %}

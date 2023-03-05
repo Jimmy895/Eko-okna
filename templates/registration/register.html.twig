@@ -8,6 +8,13 @@
 
     {{ form_start(registrationForm, {attr: {'class': 'bg-light col-3 position-absolute top-50 start-50 translate-middle d-flex flex-column gap-3 p-5 shadow rounded-3'}}) }}
         <h1 class="h2 mb-3 font-weight-normal">Stwórz użytkownika</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
+
         {{ form_row(registrationForm.login) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Hasło:'

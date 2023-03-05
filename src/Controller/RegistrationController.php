@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RegistrationController extends AbstractController
 {
@@ -22,7 +21,7 @@ class RegistrationController extends AbstractController
         $this->storageService = $storageService;
     }
 
-    #[Route('/register', name: 'app_register')]
+    #[Route('/users/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
@@ -31,6 +30,8 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
+
+            $this->addFlash('success', 'Utworzono użytkownika!');
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,

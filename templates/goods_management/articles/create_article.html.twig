@@ -12,6 +12,12 @@
         {{ form_errors(addArticleForm) }}
     </div>
 
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     {{ form_row(addArticleForm.name) }}
     {{ form_row(addArticleForm.unit) }}
 
