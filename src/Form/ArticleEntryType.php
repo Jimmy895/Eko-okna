@@ -16,7 +16,6 @@ class ArticleEntryType extends AbstractType
     {
         $builder
             ->add('article',ChoiceType::class, [
-
                 'choices' => $options['article'],
                 'required' => true,
                 'label' => 'Nazwa artykułu:',
@@ -29,7 +28,26 @@ class ArticleEntryType extends AbstractType
                 'label_attr' => [
                     'class' => 'h5',
                 ],
-            ])
+            ]);
+
+            if ($options['storages']) {
+                $builder
+                    ->add('storage_list_id', ChoiceType::class, [
+                        'choices'  => $options['storages'],
+                        'label' => 'Przypisz magazyn:',
+                        'row_attr' => [
+                            'class' => 'd-flex justify-content-between align-items-center',
+                        ],
+                        'attr' => [
+                            'class' => 'btn h5 px-3 py-2 bg-white rounded-2 border border-primary',
+                        ],
+                        'label_attr' => [
+                            'class' => 'h5',
+                        ]
+                    ]);
+            }
+
+            $builder
             ->add('code', NumberType::class, [
                 'required' => true,
                 'label' => 'Kod artykułu:',
@@ -105,7 +123,8 @@ class ArticleEntryType extends AbstractType
     {
         $resolver->setDefaults([
             'article' => null,
-            'data_class' => null
+            'data_class' => null,
+            'storages' => null
         ]);
     }
 }
