@@ -103,7 +103,7 @@ class StorageService
 
     public function updateUserStorage(string $login, int $storage_id)
     {
-        return $this->storageRepo->updateUserStorage($login, $storage_id);
+        return $this->storageRepo->updateUserEditStorage($login, $storage_id);
     }
 
     public function prepareArticlesList(): array
@@ -123,6 +123,7 @@ class StorageService
         $checkIfAlreadyExists = $this->storageRepo->checkIfArticleExists($data ['article'], $data['code']);
         if ($checkIfAlreadyExists) {
             $amountToSet = $checkIfAlreadyExists['amount'] + $data['amount'];
+
             return $this->storageRepo->entryUpdateArticle($checkIfAlreadyExists['id'], $amountToSet, $data['vat'], $data['price'], $filePath, $data['code']);
         } else {
             return $this->storageRepo->entryArticle($data['article'], $data['amount'], $data['vat'], $data['price'], $unitId['id'], $data['code'], $data['storage_list_id'], $filePath);
