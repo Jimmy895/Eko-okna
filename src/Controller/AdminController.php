@@ -99,22 +99,4 @@ class AdminController extends AbstractController
             'user' => $user,
         ]);
     }
-
-
-    #[Route('/article/create', name: 'create_article')]
-    public function createArticle(Request $request): Response
-    {
-        $form = $this->createForm(CreateArticleType::class, null, ['units' => $this->storageService->prepareUnitsArrayForSelect()]);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->addFlash('success', 'Utworzono artykuł!');
-            $data = $form->getData();
-            $this->storageService->insertNewArticle($data);
-        }
-
-        return $this->render('admin/articles/create_article.html.twig', [
-            'addArticleForm' => $form->createView(),
-        ]);
-    }
 }
