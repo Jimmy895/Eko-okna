@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Repository\StorageRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class StorageService
 {
@@ -95,9 +96,14 @@ class StorageService
         return $this->storageRepo->selectUser($id);
     }
 
-    public function selectStoragesForUserEdit()
+//    public function selectStoragesForUserEdit()
+//    {
+//        return $this->storageRepo->selectStoragesForUserEdit();
+//    }
+
+    public function updateUserStorage(string $login, int $storage_id)
     {
-        return $this->storageRepo->selectStoragesForUserEdit();
+        return $this->storageRepo->updateUserStorage($login, $storage_id);
     }
 
     public function prepareArticlesList(): array
@@ -119,15 +125,15 @@ class StorageService
             $amountToSet = $checkIfAlreadyExists['amount'] + $data['amount'];
             return $this->storageRepo->entryUpdateArticle($checkIfAlreadyExists['id'], $amountToSet, $data['vat'], $data['price'], $filePath, $data['code']);
         } else {
-            return $this->storageRepo->entryArticle($data['article'], $data['amount'], $data['vat'], $data['price'], $unitId['id'], $filePath, $data['code']);
+            return $this->storageRepo->entryArticle($data['article'], $data['amount'], $data['vat'], $data['price'], $unitId['id'], $data['code'], $data['storage_list_id'], $filePath);
         }
     }
 
-    public function prepareArticlesListForRelease() {
-        $articleList = $this->storageRepo->selectAllArticlesListWithAmount();
+    public function prepareArticlesListForRelease(?int $storageId = null) {
+        $articleList = $this->storageRepo->selectAllArticlesListWithAmount($storageId);
         $articleListForSelect = [];
         foreach ($articleList as $article) {
-            $articleListForSelect["{$article['name']} - dostępne: {$article['amount']} ({$article['unit']}) kod: {$article['code']}"] = $article['id'] ;
+            $articleListForSelect[$article['storage_name']]["{$article['name']} - dostępne: {$article['amount']} ({$article['unit']}) kod: {$article['code']}"] = $article['id'] ;
         }
 
         return $articleListForSelect;
