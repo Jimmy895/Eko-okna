@@ -14,7 +14,6 @@ class ArticleReleaseType extends AbstractType
     {
         $builder
             ->add('article',ChoiceType::class, [
-
                 'choices' => $options['article'],
                 'required' => true,
                 'label' => 'Nazwa artykułu:',
