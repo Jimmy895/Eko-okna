@@ -62,7 +62,7 @@ class GoodsManagementController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-
+            $this->storageService->updateArticleName($id, $data['name']);
 
             return $this->redirectToRoute('articles_list');
         }
