@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class GoodsManagementController extends AbstractController
@@ -22,9 +23,10 @@ class GoodsManagementController extends AbstractController
     }
 
     #[Route('/entry', name: 'entry_article')]
-    public function entryArticle(Request $request, SluggerInterface $slugger): Response
+    public function entryArticle(Request $request, UserInterface $user): Response
     {
-        $form = $this->createForm(ArticleEntryType::class, null, ['article' => $this->storageService->prepareArticlesList()]);
+        $storages = $this->isGranted('ROLE_ADMIN') ? $this->storageService->prepareStorageArrayForSelect() : null;
+        $form = $this->createForm(ArticleEntryType::class, ['storage_list_id' => $user->getStorageListId()], ['article' => $this->storageService->prepareArticlesList(), 'storages' => $storages]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -52,11 +54,15 @@ class GoodsManagementController extends AbstractController
                 $filePath = $destination.$newFilename;
             }
 
+            if (!$data['storage_list_id']) {
+                $data['storage_list_id'] = $user->getStorageListId();
+            }
+
             $passedData = $this->storageService->entryArticle($data, $filePath);
 
             if ($passedData) {
                 $this->addFlash('success', 'Przyjęto artykuł!');
-                $form = $this->createForm(ArticleEntryType::class, null, ['article' => $this->storageService->prepareArticlesList()]);
+                $form = $this->createForm(ArticleEntryType::class, ['storage_list_id' => $user->getStorageListId()], ['article' => $this->storageService->prepareArticlesList(), 'storages' => $storages]);
             } else {
                 $this->addFlash('warning', 'Error!');
             }
@@ -64,13 +70,15 @@ class GoodsManagementController extends AbstractController
 
         return $this->render('goods_management/entry/article_entry.html.twig', [
             'entryArticle' => $form->createView(),
+            'isAdmin' => $this->isGranted('ROLE_ADMIN'),
         ]);
     }
 
     #[Route('/release', name: 'release_article')]
-    public function releaseArticle(Request $request): Response
+    public function releaseArticle(Request $request, UserInterface $user): Response
     {
-        $form = $this->createForm(ArticleReleaseType::class, null, ['article' => $this->storageService->prepareArticlesListForRelease()]);
+        $storageId = $this->isGranted('ROLE_ADMIN') ? null : $user->getStorageListId();
+        $form = $this->createForm(ArticleReleaseType::class, null, ['article' => $this->storageService->prepareArticlesListForRelease($storageId)]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -87,7 +95,7 @@ class GoodsManagementController extends AbstractController
             $checkAmounts = $this->storageService->releaseArticle($data);
             if ($checkAmounts) {
                 $this->addFlash('success', 'Wydano towar z magazynu!');
-                $form = $this->createForm(ArticleReleaseType::class, null, ['article' => $this->storageService->prepareArticlesListForRelease()]);
+                $form = $this->createForm(ArticleReleaseType::class, null, ['article' => $this->storageService->prepareArticlesListForRelease($storageId)]);
             } else {
                 $this->addFlash('warning', 'Brak pożądanej ilości towaru w magazynie!');
             }
