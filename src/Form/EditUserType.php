@@ -34,8 +34,7 @@ class EditUserType extends AbstractType
                 ],
                 'label_attr' => [
                     'class' => 'h5',
-                ],
-
+                ]
             ])
         ;
     }
