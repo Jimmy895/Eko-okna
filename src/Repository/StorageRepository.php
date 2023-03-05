@@ -117,10 +117,75 @@ class StorageRepository
 
     public function selectUser(int $id)
     {
-        $sql = "SELECT * FROM user WHERE id = :id";
+        $sql = "SELECT u.id, u.login, u.roles, u.storage_list_id FROM user u WHERE id = :id";
         $param['id'] = $id;
 
         return $this->connection->fetchAssociative($sql, $param);
+    }
+
+    public function selectStoragesForUserEdit()
+    {
+        $sql = "SELECT * FROM storages";
+
+        return $this->connection->fetchAllAssociative($sql);
+    }
+
+    public function selectUnitForArticle(int $articleId) {
+        $query = "SELECT u.id FROM units u JOIN articles_list a on u.id = a.unit_id WHERE a.id = :articleId";
+
+        $params['articleId'] = $articleId;
+
+        return $this->connection->fetchAssociative($query, $params);
+    }
+
+    public function selectAllArticlesList() {
+        $query = "SELECT al.id, al.name, u.unit 
+        FROM articles_list al
+        JOIN units u ON al.unit_id = u.id";
+
+        return $this->connection->fetchAllAssociative($query);
+    }
+
+    public function checkIfArticleExists(int $id, ?int $code) {
+        $query = "SELECT id, name_id, amount,code FROM articles WHERE name_id = $id AND code = $code";
+
+        return $this->connection->fetchAssociative($query);
+    }
+
+    public function entryUpdateArticle(int $id, float $amount, float $vat, float $price, ?string $filePath, ?int $code) {
+
+        $query = "UPDATE articles 
+                SET amount = :amount, vat = :vat, price = :price, file_path = :filePath 
+                WHERE id = $id AND code = $code";
+
+        $params = [
+            'id' => $id,
+            'amount' => $amount,
+            'vat' => $vat,
+            'price' => $price,
+            'filePath' => $filePath,
+            'code' => $code,
+        ];
+
+        return $this->connection->executeQuery($query, $params);
+    }
+
+    public function entryArticle(int $id, float $amount, float $vat, float $price, int $unitName, ?string $filePath, ?int $code, int $storageId = 1) {
+
+        $query = "INSERT INTO articles (name_id, amount, unit_id, vat, price, storages_list_id, file_path, code) VALUES (:name_id, :amount, :unit_id, :vat, :price, :storages_list_id, :file_path, :code)";
+
+        $params = [
+            'name_id' => $id,
+            'amount' => $amount,
+            'unit_id' => $unitName,
+            'vat' => $vat,
+            'price' => $price,
+            'storages_list_id' => $storageId,
+            'file_path' => $filePath,
+            'code' => $code,
+        ];
+
+        return $this->connection->executeQuery($query, $params);
     }
 
 
