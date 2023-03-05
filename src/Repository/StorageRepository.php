@@ -160,6 +160,14 @@ class StorageRepository
         return $this->connection->fetchAllAssociative($sql);
     }
 
+    public function selectArticleToEdit(int $id)
+    {
+        $sql = "SELECT * FROM articles_list WHERE id = :id";
+        $param['id'] = $id;
+
+        return $this->connection->fetchAssociative($sql, $param);
+    }
+
     public function checkIfArticleExists(int $id, ?int $code) {
         $sql = "SELECT id, name_id, amount,code FROM articles WHERE name_id = $id AND code = $code";
 
