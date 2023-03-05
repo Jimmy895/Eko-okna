@@ -123,42 +123,56 @@ class StorageRepository
         return $this->connection->fetchAssociative($sql, $param);
     }
 
-    public function selectStoragesForUserEdit()
+//    public function selectStoragesForUserEdit()
+//    {
+//        $sql = "SELECT * FROM storages";
+//
+//        return $this->connection->fetchAllAssociative($sql);
+//    }
+
+    public function updateUserEditStorage(string $login, int $storage_id)
     {
-        $sql = "SELECT * FROM storages";
+        $sql = "UPDATE user
+        SET storage_list_id = :storage_id
+        WHERE login = :login";
+
+        $param = [
+            'login' => $login,
+            'storage_id' => $storage_id
+        ];
+
+        return $this->connection->executeQuery($sql, $param);
+    }
+
+    public function selectUnitForArticle(int $articleId) {
+        $sql = "SELECT u.id FROM units u JOIN articles_list a on u.id = a.unit_id WHERE a.id = :articleId";
+
+        $param['articleId'] = $articleId;
+
+        return $this->connection->fetchAssociative($sql, $param);
+    }
+
+    public function selectAllArticlesList() {
+        $sql = "SELECT al.id, al.name, u.unit 
+        FROM articles_list al
+        JOIN units u ON al.unit_id = u.id";
 
         return $this->connection->fetchAllAssociative($sql);
     }
 
-    public function selectUnitForArticle(int $articleId) {
-        $query = "SELECT u.id FROM units u JOIN articles_list a on u.id = a.unit_id WHERE a.id = :articleId";
-
-        $params['articleId'] = $articleId;
-
-        return $this->connection->fetchAssociative($query, $params);
-    }
-
-    public function selectAllArticlesList() {
-        $query = "SELECT al.id, al.name, u.unit 
-        FROM articles_list al
-        JOIN units u ON al.unit_id = u.id";
-
-        return $this->connection->fetchAllAssociative($query);
-    }
-
     public function checkIfArticleExists(int $id, ?int $code) {
-        $query = "SELECT id, name_id, amount,code FROM articles WHERE name_id = $id AND code = $code";
+        $sql = "SELECT id, name_id, amount,code FROM articles WHERE name_id = $id AND code = $code";
 
-        return $this->connection->fetchAssociative($query);
+        return $this->connection->fetchAssociative($sql);
     }
 
     public function entryUpdateArticle(int $id, float $amount, float $vat, float $price, ?string $filePath, ?int $code) {
 
-        $query = "UPDATE articles 
+        $sql = "UPDATE articles 
                 SET amount = :amount, vat = :vat, price = :price, file_path = :filePath 
                 WHERE id = $id AND code = $code";
 
-        $params = [
+        $param = [
             'id' => $id,
             'amount' => $amount,
             'vat' => $vat,
@@ -167,14 +181,14 @@ class StorageRepository
             'code' => $code,
         ];
 
-        return $this->connection->executeQuery($query, $params);
+        return $this->connection->executeQuery($sql, $param);
     }
 
-    public function entryArticle(int $id, float $amount, float $vat, float $price, int $unitName, ?string $filePath, ?int $code, int $storageId = 1) {
+    public function entryArticle(int $id, float $amount, float $vat, float $price, int $unitName, int $code, int $storageId, ?string $filePath = null) {
 
-        $query = "INSERT INTO articles (name_id, amount, unit_id, vat, price, storages_list_id, file_path, code) VALUES (:name_id, :amount, :unit_id, :vat, :price, :storages_list_id, :file_path, :code)";
+        $sql = "INSERT INTO articles (name_id, amount, unit_id, vat, price, storages_list_id, file_path, code) VALUES (:name_id, :amount, :unit_id, :vat, :price, :storages_list_id, :file_path, :code)";
 
-        $params = [
+        $param = [
             'name_id' => $id,
             'amount' => $amount,
             'unit_id' => $unitName,
@@ -185,35 +199,43 @@ class StorageRepository
             'code' => $code,
         ];
 
-        return $this->connection->executeQuery($query, $params);
+        return $this->connection->executeQuery($sql, $param);
     }
 
-    public function selectAllArticlesListWithAmount() {
-        $query = "SELECT a.id, a.amount, a.code, al.name, u.unit
+    public function selectAllArticlesListWithAmount(?int $storageId = null) {
+        $param = [];
+        $sql = "SELECT a.id, a.amount, a.code, al.name, u.unit, s.name as storage_name
         FROM articles a
-         JOIN articles_list al ON a.name_id = al.id
-         JOIN units u ON a.unit_id = u.id
+        JOIN articles_list al ON a.name_id = al.id
+        JOIN units u ON a.unit_id = u.id
+        JOIN storages s ON s.id = a.storages_list_id 
+        WHERE a.amount > 0
         ";
 
-        return $this->connection->fetchAllAssociative($query);
+        if ($storageId) {
+            $sql .= " AND a.storages_list_id = :storageId";
+            $param['storageId'] = $storageId;
+        }
+
+        return $this->connection->fetchAllAssociative($sql, $param);
     }
 
     public function checkAmountToRelease(int $id) {
-        $query = "SELECT amount FROM articles WHERE id = $id";
+        $sql = "SELECT amount FROM articles WHERE id = $id";
 
-        return $this->connection->fetchAssociative($query);
+        return $this->connection->fetchAssociative($sql);
     }
 
     public function releaseArticle(int $id, ?float $amount, int $code) {
-        $query = "UPDATE articles SET amount = :amount WHERE id = :id AND code = :code";
+        $sql = "UPDATE articles SET amount = :amount WHERE id = :id AND code = :code";
 
-        $params = [
+        $param = [
             'id' => $id,
             'amount' => $amount,
             'code' => $code,
         ];
 
-        return $this->connection->executeQuery($query, $params);
+        return $this->connection->executeQuery($sql, $param);
     }
 
 }
