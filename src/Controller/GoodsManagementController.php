@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ArticleEntryType;
+use App\Form\ArticleReleaseType;
 use App\Service\StorageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +21,7 @@ class GoodsManagementController extends AbstractController
         $this->storageService = $storageService;
     }
 
-    #[Route('/entry', name: 'app_entry_article')]
+    #[Route('/entry', name: 'entry_article')]
     public function entryArticle(Request $request, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(ArticleEntryType::class, null, ['article' => $this->storageService->prepareArticlesList()]);
@@ -35,7 +36,7 @@ class GoodsManagementController extends AbstractController
             if ($data['amount'] <= 0) {
                 $this->addFlash('warning', 'Ilość musi wynosić co najmniej 1!');
 
-                return $this->render('goods_management/article_entry.html.twig', [
+                return $this->render('goods_management/entry/article_entry.html.twig', [
                     'entryArticle' => $form->createView(),
                 ]);
             }
@@ -61,8 +62,43 @@ class GoodsManagementController extends AbstractController
             }
         }
 
-        return $this->render('goods_management/article_entry.html.twig', [
+        return $this->render('goods_management/entry/article_entry.html.twig', [
             'entryArticle' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/release', name: 'release_article')]
+    public function releaseArticle(Request $request): Response
+    {
+        $form = $this->createForm(ArticleReleaseType::class, null, ['article' => $this->storageService->prepareArticlesListForRelease()]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            if ($data['amount'] <= 0) {
+                $this->addFlash('warning', 'Ilość musi wynosić co najmniej 1!');
+
+                return $this->render('goods_management/release/release_article.html.twig', [
+                    'releaseArticleForm' => $form->createView(),
+                ]);
+            }
+
+            $checkAmounts = $this->storageService->releaseArticle($data);
+            if ($checkAmounts) {
+                $this->addFlash('success', 'Wydano towar z magazynu!');
+                $form = $this->createForm(ArticleReleaseType::class, null, ['article' => $this->storageService->prepareArticlesListForRelease()]);
+            } else {
+                $this->addFlash('warning', 'Brak pożądanej ilości towaru w magazynie!');
+            }
+            return $this->render('goods_management/release/release_article.html.twig', [
+                'releaseArticleForm' => $form->createView(),
+            ]);
+
+        }
+
+        return $this->render('goods_management/release/release_article.html.twig', [
+            'releaseArticleForm' => $form->createView(),
         ]);
     }
 }
