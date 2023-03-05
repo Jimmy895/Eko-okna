@@ -94,4 +94,32 @@ class StorageService
     {
         return $this->storageRepo->selectUser($id);
     }
+
+    public function selectStoragesForUserEdit()
+    {
+        return $this->storageRepo->selectStoragesForUserEdit();
+    }
+
+    public function prepareArticlesList(): array
+    {
+        $articleList = $this->storageRepo->selectAllArticlesList();
+        $articleListForSelect = [];
+
+        foreach ($articleList as $article) {
+            $articleListForSelect["{$article['name']} ({$article['unit']})"] = $article['id'] ;
+        }
+
+        return $articleListForSelect;
+    }
+
+    public function entryArticle(array $data, ?string $filePath) {
+        $unitId = $this->storageRepo->selectUnitForArticle($data['article']);
+        $checkIfAlreadyExists = $this->storageRepo->checkIfArticleExists($data ['article'], $data['code']);
+        if ($checkIfAlreadyExists) {
+            $amountToSet = $checkIfAlreadyExists['amount'] + $data['amount'];
+            return $this->storageRepo->entryUpdateArticle($checkIfAlreadyExists['id'], $amountToSet, $data['vat'], $data['price'], $filePath, $data['code']);
+        } else {
+            return $this->storageRepo->entryArticle($data['article'], $data['amount'], $data['vat'], $data['price'], $unitId['id'], $filePath, $data['code']);
+        }
+    }
 }
