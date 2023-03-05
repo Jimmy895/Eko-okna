@@ -128,13 +128,6 @@ class StorageRepository
         return $this->connection->fetchAssociative($sql, $param);
     }
 
-//    public function selectStoragesForUserEdit()
-//    {
-//        $sql = "SELECT * FROM storages";
-//
-//        return $this->connection->fetchAllAssociative($sql);
-//    }
-
     public function updateUserEditStorage(string $login, int $storage_id)
     {
         $sql = "UPDATE user
