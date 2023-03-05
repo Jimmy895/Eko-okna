@@ -23,6 +23,9 @@
     {% endfor %}
 
     {{ form_row(entryArticle.article) }}
+    {% if isAdmin %}
+        {{ form_row(entryArticle.storage_list_id) }}
+    {% endif %}
     {{ form_row(entryArticle.code) }}
     {{ form_row(entryArticle.amount) }}
     {{ form_row(entryArticle.vat) }}
