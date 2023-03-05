@@ -27,6 +27,7 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Utworzono magazyn!');
             $data = $form->getData();
             $this->storageService->insertNewStorage($data);
         }
@@ -80,10 +81,12 @@ class AdminController extends AbstractController
     #[Route('/user/edit/{id}', name: 'edit_user')]
     public function editUser(int $id, Request $request): Response
     {
+
+        $storages = $this->storageService->selectStoragesForUserEdit();
         $user = $this->storageService->selectUser($id);
         $form = $this->createForm(EditUserType::class, ['login' => $user['login'], 'storages' => $this->storageService->prepareStorageArrayForSelect()]);
         $form->handleRequest($request);
-        dd($user, $this->storageService->prepareStorageArrayForSelect());
+//        dd($user, $this->storageService->prepareStorageArrayForSelect());
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
@@ -107,6 +110,7 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Utworzono artykuł!');
             $data = $form->getData();
             $this->storageService->insertNewArticle($data);
         }
