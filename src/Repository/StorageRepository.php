@@ -188,6 +188,33 @@ class StorageRepository
         return $this->connection->executeQuery($query, $params);
     }
 
+    public function selectAllArticlesListWithAmount() {
+        $query = "SELECT a.id, a.amount, a.code, al.name, u.unit
+        FROM articles a
+         JOIN articles_list al ON a.name_id = al.id
+         JOIN units u ON a.unit_id = u.id
+        ";
+
+        return $this->connection->fetchAllAssociative($query);
+    }
+
+    public function checkAmountToRelease(int $id) {
+        $query = "SELECT amount FROM articles WHERE id = $id";
+
+        return $this->connection->fetchAssociative($query);
+    }
+
+    public function releaseArticle(int $id, ?float $amount, int $code) {
+        $query = "UPDATE articles SET amount = :amount WHERE id = :id AND code = :code";
+
+        $params = [
+            'id' => $id,
+            'amount' => $amount,
+            'code' => $code,
+        ];
+
+        return $this->connection->executeQuery($query, $params);
+    }
 
 }
 
