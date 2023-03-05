@@ -122,4 +122,29 @@ class StorageService
             return $this->storageRepo->entryArticle($data['article'], $data['amount'], $data['vat'], $data['price'], $unitId['id'], $filePath, $data['code']);
         }
     }
+
+    public function prepareArticlesListForRelease() {
+        $articleList = $this->storageRepo->selectAllArticlesListWithAmount();
+        $articleListForSelect = [];
+        foreach ($articleList as $article) {
+            $articleListForSelect["{$article['name']} - dostępne: {$article['amount']} ({$article['unit']}) kod: {$article['code']}"] = $article['id'] ;
+        }
+
+        return $articleListForSelect;
+    }
+
+    public function releaseArticle(array $data) {
+        $getCurrentAmount = $this->storageRepo->checkAmountToRelease($data['article']);
+
+        if($getCurrentAmount['amount'] < $data['amount']) {
+
+            return false;
+        }
+        else {
+            $amountToSet = $getCurrentAmount['amount'] - $data['amount'];
+            $releasedArticle = $this->storageRepo->releaseArticle($data['article'], $amountToSet, $data['code']);
+
+            return true;
+        }
+    }
 }
