@@ -127,6 +127,11 @@ class StorageService
         return $this->storageRepo->selectArticleToEdit($id);
     }
 
+    public function updateArticleName(int $id, string $name)
+    {
+        return $this->storageRepo->updateArticleName($id, $name);
+    }
+
     public function entryArticle(array $data, ?string $filePath) {
         $unitId = $this->storageRepo->selectUnitForArticle($data['article']);
         $checkIfAlreadyExists = $this->storageRepo->checkIfArticleExists($data ['article'], $data['code']);
@@ -158,7 +163,7 @@ class StorageService
         }
         else {
             $amountToSet = $getCurrentAmount['amount'] - $data['amount'];
-            $releasedArticle = $this->storageRepo->releaseArticle($data['article'], $amountToSet, $data['code']);
+            $this->storageRepo->releaseArticle($data['article'], $amountToSet, $data['code']);
 
             return true;
         }
