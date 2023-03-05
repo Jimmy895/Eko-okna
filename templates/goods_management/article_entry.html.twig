@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entry new article{% endblock %}
+
+{% block body %}
+
+    {% include 'nav/nav.html.twig' %}
+    {{ form_start(entryArticle, {attr: {'class': 'bg-light col-3 position-absolute top-50 start-50 translate-middle d-flex flex-column gap-3 p-4 shadow rounded-3'}}) }}
+    <h1>Przyjmij artykuł</h1>
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(entryArticle) }}
+    </div>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('warning') %}
+        <div class="alert alert-danger text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ form_row(entryArticle.article) }}
+    {{ form_row(entryArticle.code) }}
+    {{ form_row(entryArticle.amount) }}
+    {{ form_row(entryArticle.vat) }}
+    {{ form_row(entryArticle.price) }}
+    {{ form_row(entryArticle.attachment) }}
+
+    <button type="submit" class="btn btn-lg btn-outline-primary">Przyjmij</button>
+
+
+
+    {{ form_end(entryArticle) }}
+
+
+{% endblock %}
