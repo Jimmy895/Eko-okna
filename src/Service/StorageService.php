@@ -118,6 +118,15 @@ class StorageService
         return $articleListForSelect;
     }
 
+    public function prepareArticlesForList() {
+        return $this->storageRepo->selectAllArticlesList();
+    }
+
+    public function selectArticleToEdit(int $id)
+    {
+        return $this->storageRepo->selectArticleToEdit($id);
+    }
+
     public function entryArticle(array $data, ?string $filePath) {
         $unitId = $this->storageRepo->selectUnitForArticle($data['article']);
         $checkIfAlreadyExists = $this->storageRepo->checkIfArticleExists($data ['article'], $data['code']);
