@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use App\Form\ArticleEntryType;
 use App\Form\ArticleReleaseType;
+use App\Form\CreateArticleType;
+use App\Form\CreateNewStorageType;
+use App\Form\EditArticleType;
+use App\Form\EditUserType;
 use App\Service\StorageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,6 +24,54 @@ class GoodsManagementController extends AbstractController
     public function __construct(StorageService $storageService)
     {
         $this->storageService = $storageService;
+    }
+
+
+    #[Route('/article/create', name: 'create_article')]
+    public function createArticle(Request $request): Response
+    {
+        $form = $this->createForm(CreateArticleType::class, null, ['units' => $this->storageService->prepareUnitsArrayForSelect()]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Utworzono artykuł!');
+            $data = $form->getData();
+            $this->storageService->insertNewArticle($data);
+        }
+
+        return $this->render('goods_management/articles/create_article.html.twig', [
+            'addArticleForm' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/articles/list', name: 'articles_list')]
+    public function storages(): Response
+    {
+        return $this->render('goods_management/articles/articles_list.html.twig', [
+            'controller_name' => 'AdminController',
+            'articles_list' => $this->storageService->prepareArticlesForList()
+        ]);
+    }
+
+    #[Route('/articles/edit/{id}', name: 'edit_article')]
+    public function editArticle(int $id, Request $request): Response
+    {
+        $article = $this->storageService->selectArticleToEdit($id);
+        $form = $this->createForm(EditArticleType::class, ['name' => $article['name']]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+
+            return $this->redirectToRoute('articles_list');
+        }
+
+        return $this->render('goods_management/articles/edit_article.html.twig', [
+            'controller_name' => 'AdminController',
+            'article' => $article,
+            'form' => $form->createView(),
+        ]);
     }
 
     #[Route('/entry', name: 'entry_article')]
