@@ -21,7 +21,7 @@ class RegistrationController extends AbstractController
         $this->storageService = $storageService;
     }
 
-    #[Route('/register', name: 'app_register')]
+    #[Route('/users/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
