@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5c1437-7973-4655-b69c-c2878fbd0fe8" name="Changes" comment="Config - automatyczne zmiany w plikach konfiguracyjnych">
-      <change afterPath="$PROJECT_DIR$/templates/admin/users/edit_user.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1184915c-d076-46d4-9ecb-3c5e4fbb4660.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1184915c-d076-46d4-9ecb-3c5e4fbb4660.xml" afterDir="false" />
+    <list default="true" id="6a5c1437-7973-4655-b69c-c2878fbd0fe8" name="Changes" comment="Yaml - dodanie nowego parametru pozwalającego na obsługę plików, parametr przechowuje ścieżkę do folderu &quot;uploads&quot;, który jest folderem przechowującym pliki dodawane podczas przyjmowania towaru">
+      <change afterPath="$PROJECT_DIR$/src/Controller/Urlizer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/StorageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StorageRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/StorageService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/StorageService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/users/users_list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users/users_list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/users/edit_user.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users/edit_user.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,126 +215,8 @@
       <workItem from="1677781740312" duration="9767000" />
       <workItem from="1677854569948" duration="17554000" />
       <workItem from="1677875178574" duration="10000" />
-      <workItem from="1677935051669" duration="4529000" />
-    </task>
-    <task id="LOCAL-00055" summary="Service - przygotowano funkcję obrabiającą dane magazynów potrzebne do wyświelenia i przypisania w formularzu rejestracji użytkownika">
-      <created>1677686081519</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1677686081519</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Repo - przygotowano zapytanie wyciągające magazyny z bazy danych">
-      <created>1677686124879</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1677686124879</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Type - przerobiono automatycznie wygenerowany formularz zgodnie z założeniami projektu">
-      <created>1677686169330</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1677686169330</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Controller - przerobiono automatycznie wygenerowany kontroler rejestracji. Dodano połączenie z serwisem, przesłano listę magazynów do formularza oraz ustawiono default role jako ROLE_USER.">
-      <created>1677686264555</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1677686264555</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Twig - dokonano zmian w automatycznie wygenerowanym widoku formularza rejestracji:&#10;- dodano style,&#10;- spolszczono nazwy,&#10;- dodano pole wyboru przypisanego magazynu">
-      <created>1677686334028</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1677686334028</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Twig - stworzono i ostylowano formularz odpowiadający za tworzenie artykułu i przypisane mu jednostki miary">
-      <created>1677694894740</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1677694894740</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Twig - ostylowanie headera">
-      <created>1677694924407</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1677694924407</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Twig - dodanie nowej opcji do menu nawigacji - tworzenie artykułu">
-      <created>1677694948060</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1677694948060</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Controller - stworzenie funkcji odpowiadającej za tworzenie nowego artykułu">
-      <created>1677694987711</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1677694987711</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Repo - dodanie zapytań związanych z tworzeniem nowego artykułu:&#10;- wyciągnięcie z bazy danych jednostek miary na potrzeby sekcji select w formularzu,&#10;- insert nowego artykułu z przypisaniem jego jednostki miary">
-      <created>1677695059021</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1677695059021</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Service - stworzenie funkcji związanych z insertem nowego artykułu: &#10;- obróbka jednostek miary celem prezentacji w formularzu (select)&#10;- przesłanie danych zwracanych z formularza do Repo">
-      <created>1677695154802</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1677695154802</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Type - stworzenie szkieletu formularza dodawania artykułu przy pomocy buildera">
-      <created>1677695192206</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1677695192206</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Config - automatyczne zmiany w plikach konfiguracyjnych projektu">
-      <created>1677695224624</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1677695224624</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Config - automatyczne zmiany w plikach konfiguracyjnych projektu">
-      <created>1677707753877</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1677707753877</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Twig - stworzenie wstępnego widoku listy magazynów">
-      <created>1677707796846</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1677707796846</updated>
-    </task>
-    <task id="LOCAL-00070" summary="Twig - poprawa buga - odsunięcie napisu">
-      <created>1677707854994</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1677707854994</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Service - dodanie funkcji odpowiedzialnych za tworzenie listy magazynów oraz ich edycję.&#10;Pozostało dodać funkcje update'ujące edytowane nazwy">
-      <created>1677793644550</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1677793644550</updated>
+      <workItem from="1677935051669" duration="5317000" />
+      <workItem from="1678011020496" duration="8798000" />
     </task>
     <task id="LOCAL-00072" summary="Repository - dodanie funkcji odpowiedzialnych za tworzenie listy magazynów oraz ich edycję.&#10;Pozostało dodać funkcje update'ujące edytowane &#10;nazw.&#10;- zmiany nazewnictwa zmiennych">
       <created>1677793701152</created>
@@ -564,7 +442,126 @@
       <option name="project" value="LOCAL" />
       <updated>1677875142107</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Config - automatyczne zmiany w plikach konfiguracyjnych">
+      <created>1677942911896</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1677942911896</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Controller - wstępne przesłanie danych do formularza edycji użytkowników">
+      <created>1677942941892</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1677942941892</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Twig - stworzenie wyglądu formularza edycji użytkowników">
+      <created>1677942959896</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1677942959896</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Twig - przesłanie id usera do formularza edycji użytkownika">
+      <created>1677942992095</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1677942992095</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Type - wstępna konfiguracja formularza edycji użytkownika">
+      <created>1677943012551</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1677943012551</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Repository - stworzenie funkcji odpowiadającej za wyciągnięcie danych o danym użytkowniku przy pomocy jego id">
+      <created>1677943044421</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1677943044421</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Servica - stworzenie funkcji odpowiadającej za wyciągnięcie danych o danym użytkowniku przy pomocy przesłania jego id do repository">
+      <created>1677943080934</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1677943080934</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Controller - dodanie 'flash messages' do formularzy tworzących: użytkowników, magazyny, artykuły">
+      <created>1678024179721</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1678024179721</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Twig - dodanie wyświetlania wiadomości flash do formularzy">
+      <created>1678024211973</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1678024211973</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Twig - dodanie wyświetlania wiadomości flash do formularzy">
+      <created>1678024216359</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1678024216359</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Twig - Nav - przygotowanie nawigacji pod opcje przyjęcia oraz wydania towaru">
+      <created>1678024249670</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1678024249670</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Twig - dodanie wyświetlania wiadomości flash do formularzy">
+      <created>1678024278401</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1678024278401</updated>
+    </task>
+    <task id="LOCAL-00116" summary="Controller - dodanie wyświetlania wiadomości flash w kontrolerze rejestracji">
+      <created>1678024311860</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1678024311860</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Twig - utworzenie wyglądu formularza przyjęcia artykułu oraz dodanie wyświetlania wiadomości flash">
+      <created>1678024364490</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1678024364490</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Service - utworzenie funkcji odpowiadających za obsługę danych potrzebnych do obsługi przyjęcia towaru:&#10;- przygotowanie danych potrzebnych do wyświetlenia artykułów zapisanych w bazie na zasadzie &quot;nazwa_artykułu jednostka_miary&quot;&#10;- dodanie funkcji przygotowującej artykuł do wprowadzenia do bazy danych:&#10;a) jeśli artykuł nie istnieje w bazie danych wówczas zostaje utworzony,&#10;b) jeśli artykuł o podanych parametrach istnieje w bazie danych wówczas aktualizowany jest jego stan magazynowy">
+      <created>1678024564793</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1678024564793</updated>
+    </task>
+    <task id="LOCAL-00119" summary="Repository - utworzenie funkcji odpowiadających za obsługę danych potrzebnych do obsługi przyjęcia towaru:&#10;- przygotowanie zapytań SELECT dla danych potrzebnych do wyświetlenia artykułów zapisanych w bazie&#10;- dodanie funkcji przygotowującej artykuł do wprowadzenia do bazy danych:&#10;a) jeśli artykuł nie istnieje w bazie danych wówczas zostaje wprowadzony INSERT,&#10;b) jeśli artykuł o podanych parametrach istnieje w bazie danych wówczas wykonywany jest UPDATE">
+      <created>1678024696002</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1678024696002</updated>
+    </task>
+    <task id="LOCAL-00120" summary="Yaml - dodanie nowego parametru pozwalającego na obsługę plików, parametr przechowuje ścieżkę do folderu &quot;uploads&quot;, który jest folderem przechowującym pliki dodawane podczas przyjmowania towaru">
+      <created>1678024778951</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1678024778951</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,20 +604,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Twig - przeniesienie pliku w drzewie projektu tak aby struktura plików była bardziej czytelna" />
-    <MESSAGE value="Twig - Nav - stworzono wstępny odnośnik do kolejnej podstrony - lista artykułów" />
-    <MESSAGE value="Config - automatyczne zmiany w plikach konfiguracyjnych projektu" />
-    <MESSAGE value="Controller - dodano listę userów przypisanych do magazynów" />
-    <MESSAGE value="Type - zmiany stylistyczne - dodanie wyglądu buttona tak jak w innych formularzach" />
-    <MESSAGE value="Twig - usunięcie dump()" />
-    <MESSAGE value="Repository - dodanie funkcji odpowiedzialnej za update nazwy magazynu po edycji,&#10;- dodanie funkcji wyciągającej pracowników danego magazynu" />
-    <MESSAGE value="Twig - przygotowanie widoku listy magazynów pod wyświetlanie pracowników przypisanych do danych magazynów" />
-    <MESSAGE value="Service - dodanie funkcji która obrabia dane potrzebne do wyświetlenia nazw pracowników przypisanych do konkretnych magazynów,&#10;- dodanie funkcji odpowiedzialnych za Update nazwy magazynu po edycji" />
-    <MESSAGE value="Style - dodano efekt hover zmieniający kolor tekstu w przycisku edycji magazynu" />
-    <MESSAGE value="Migrations - stworzono migracje - dodano klucz obcy do tabeli user -&gt; storage_list_id" />
-    <MESSAGE value="Service - rozbudowano funkcję serwisu, o obróbkę danych związanych z generowaniem liczby artykułów w danym magazynie. Rozszerzono bazową tablicę o dodatkowe pole &quot;articles&quot;, liczba &quot;articles&quot; sprawdzana jest w twigu." />
-    <MESSAGE value="Repository - stworzono zapytanie do bazy danych które wyciąga wszystkie id produktu przypisane do danego magazynu w celu prezentacji ilości artykułów w danym magazynie." />
-    <MESSAGE value="Twig - rozbudowano widok listy magazynów tak aby prezentować dane odnośnie ilości artykułów w danym magazynie. Długość tablicy sprawdzono przy pomocy &quot;length&quot;" />
     <MESSAGE value="Twig - Stworzono widok listy użytkowników, dodano dane odnoszące się do miejsca pracy usera oraz uprawnień w systemie" />
     <MESSAGE value="Service - stworzono funkcję odpowiadającą za wyciągnięcie danych na potrzeby stworzenia listy użytkowników" />
     <MESSAGE value="Repository - stworzono zapytanie do bazy danych wyciągające informacje odnośnie użytkownika: login, rola, nazwa miejsca pracy." />
@@ -632,6 +615,20 @@
     <MESSAGE value="Controller - stworzenie generatora sekcji: lista użytkowników,&#10;- wstępne przygotowanie funkcjonalności związanej z edycją użytkownika" />
     <MESSAGE value="Type - normalizacja nazewnictw w formularzach" />
     <MESSAGE value="Config - automatyczne zmiany w plikach konfiguracyjnych" />
-    <option name="LAST_COMMIT_MESSAGE" value="Config - automatyczne zmiany w plikach konfiguracyjnych" />
+    <MESSAGE value="Controller - wstępne przesłanie danych do formularza edycji użytkowników" />
+    <MESSAGE value="Twig - stworzenie wyglądu formularza edycji użytkowników" />
+    <MESSAGE value="Twig - przesłanie id usera do formularza edycji użytkownika" />
+    <MESSAGE value="Type - wstępna konfiguracja formularza edycji użytkownika" />
+    <MESSAGE value="Repository - stworzenie funkcji odpowiadającej za wyciągnięcie danych o danym użytkowniku przy pomocy jego id" />
+    <MESSAGE value="Servica - stworzenie funkcji odpowiadającej za wyciągnięcie danych o danym użytkowniku przy pomocy przesłania jego id do repository" />
+    <MESSAGE value="Controller - dodanie 'flash messages' do formularzy tworzących: użytkowników, magazyny, artykuły" />
+    <MESSAGE value="Twig - Nav - przygotowanie nawigacji pod opcje przyjęcia oraz wydania towaru" />
+    <MESSAGE value="Twig - dodanie wyświetlania wiadomości flash do formularzy" />
+    <MESSAGE value="Controller - dodanie wyświetlania wiadomości flash w kontrolerze rejestracji" />
+    <MESSAGE value="Twig - utworzenie wyglądu formularza przyjęcia artykułu oraz dodanie wyświetlania wiadomości flash" />
+    <MESSAGE value="Service - utworzenie funkcji odpowiadających za obsługę danych potrzebnych do obsługi przyjęcia towaru:&#10;- przygotowanie danych potrzebnych do wyświetlenia artykułów zapisanych w bazie na zasadzie &quot;nazwa_artykułu jednostka_miary&quot;&#10;- dodanie funkcji przygotowującej artykuł do wprowadzenia do bazy danych:&#10;a) jeśli artykuł nie istnieje w bazie danych wówczas zostaje utworzony,&#10;b) jeśli artykuł o podanych parametrach istnieje w bazie danych wówczas aktualizowany jest jego stan magazynowy" />
+    <MESSAGE value="Repository - utworzenie funkcji odpowiadających za obsługę danych potrzebnych do obsługi przyjęcia towaru:&#10;- przygotowanie zapytań SELECT dla danych potrzebnych do wyświetlenia artykułów zapisanych w bazie&#10;- dodanie funkcji przygotowującej artykuł do wprowadzenia do bazy danych:&#10;a) jeśli artykuł nie istnieje w bazie danych wówczas zostaje wprowadzony INSERT,&#10;b) jeśli artykuł o podanych parametrach istnieje w bazie danych wówczas wykonywany jest UPDATE" />
+    <MESSAGE value="Yaml - dodanie nowego parametru pozwalającego na obsługę plików, parametr przechowuje ścieżkę do folderu &quot;uploads&quot;, który jest folderem przechowującym pliki dodawane podczas przyjmowania towaru" />
+    <option name="LAST_COMMIT_MESSAGE" value="Yaml - dodanie nowego parametru pozwalającego na obsługę plików, parametr przechowuje ścieżkę do folderu &quot;uploads&quot;, który jest folderem przechowującym pliki dodawane podczas przyjmowania towaru" />
   </component>
 </project>
